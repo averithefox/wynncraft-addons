@@ -38,6 +38,11 @@ dependencies {
 
   modLocalRuntime("me.djtheredstoner:DevAuth-fabric:1.2.2")
   modImplementation("maven.modrinth:wynntils:v$wynntilsVersion-fabric")
+
+  implementation("org.lwjgl:lwjgl-nanovg:3.3.3")
+  listOf("linux", "macos-arm64").forEach {
+    implementation("org.lwjgl:lwjgl-nanovg:3.3.3:natives-$it")
+  }
 }
 
 loom {

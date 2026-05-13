@@ -8,11 +8,14 @@ import com.wynntils.utils.render.RenderUtils
 import com.wynntils.utils.render.Texture
 import me.averi.wynntils.dx.ItemModelSetting
 import me.averi.wynntils.utils.*
+import me.averi.wynntils.utils.render.NVGPiPRenderer
+import me.averi.wynntils.utils.render.vg
 import net.minecraft.client.gui.GuiGraphics
 import net.minecraft.client.gui.screens.Screen
 import net.minecraft.client.gui.screens.inventory.InventoryScreen
 import net.minecraft.client.input.MouseButtonEvent
 import net.minecraft.network.chat.Component
+import java.awt.Color
 import kotlin.math.*
 import kotlin.properties.Delegates
 
@@ -59,6 +62,12 @@ class ItemModelSelectorScreen(val previousScreen: Screen, val setting: ItemModel
   }
 
   override fun doRender(ctx: GuiGraphics, mouseX: Int, mouseY: Int, partialTick: Float) {
+    NVGPiPRenderer.draw(ctx, 0, 0, ctx.guiWidth(), ctx.guiHeight()) {
+      vg.beginFrame(ctx.guiWidth().toFloat(), ctx.guiHeight().toFloat())
+      vg.drawRoundedRect(100f, 100f, 100f, 100f, 10f, Color.RED)
+      vg.endFrame()
+    }
+
     RenderUtils.drawTexturedRect(ctx, Texture.SECRETS_BACKGROUND, offsetX, offsetY)
 
     RenderUtils.enableScissor(ctx, offsetX.toInt() + 9, offsetY.toInt() + 8, CONTENT_AREA_WIDTH, CONTENT_AREA_HEIGHT)
