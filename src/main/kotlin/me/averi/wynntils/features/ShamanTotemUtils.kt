@@ -45,7 +45,7 @@ object ShamanTotemUtils : Feature(ProfileDefault.ENABLED) {
   }
 
   private fun isTotem(item: ItemStack) =
-    item.`is`(Items.OAK_BOAT) && (item.customModel == SHAMAN_TOTEM_CUSTOM_MODEL_DATA || item.customModel == SKYSEER_TOTEM_CUSTOM_MODEL_DATA)
+    item.`is`(Items.OAK_BOAT) && (item.customModel == 30946f || item.customModel == SHAMAN_TOTEM_CUSTOM_MODEL_DATA || item.customModel == SKYSEER_TOTEM_CUSTOM_MODEL_DATA)
 
   private enum class TotemModelType(val modelId: Float?) {
     DEFAULT(null),
