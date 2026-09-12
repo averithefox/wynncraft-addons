@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class WynntilsModMixin {
   @Inject(method = "postEvent", at = @At(value = "INVOKE", target = "Lnet/neoforged/bus/api/IEventBus;post(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;", shift = At.Shift.AFTER))
   private static <T extends Event> void postEvent(T event, CallbackInfoReturnable<Boolean> cir) {
-    EventBus.INSTANCE.publish(event);
+    EventBus.publish(event);
   }
 }
